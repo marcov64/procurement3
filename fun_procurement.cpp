@@ -25,6 +25,7 @@ v[2]=V("Cost"); //real normal cost
 v[3]=V("Skill");//objective production skill
 
 v[4]=v[2]*v[3]*(1+v[1]);
+v[4]<0?v[4]=0:v[4]=v[4];
 RESULT(v[4] )
 
 
@@ -42,7 +43,7 @@ RESULT(v[2])
 EQUATION("Rebate")
 /*
 Discount over announced cost
-Computed as the estimated rebate times the opportunistic discount.
+Computed as the estimated rebate plus the opportunistic discount.
 */
 
 v[0]=V("EstimatedRebate");
@@ -69,33 +70,77 @@ if(v[4]<0.01)
  v[4]=0.01;
 RESULT(v[4] )
 
+EQUATION("AdjustOR")
+/*
+Return the share of observed competitors having lower rebate than the caller
+*/
+v[0]=VLS(c,"Rebate",1);
+
+v[1]=V("numCompare");
+v[4]=v[5]=0;
+CYCLE(cur, "Firm")
+ {
+  WRITES(cur,"app1",1);
+ }
+WRITES(c,"app1",0);
+for(v[2]=0; v[2]<v[1]; v[2]++)
+ {
+  cur=RNDDRAW("Firm","app1");
+  WRITES(cur,"app1",0);
+  v[6]=VLS(cur,"Rebate",1);
+  if(v[6]>v[0])
+   v[4]++;
+  else
+   v[5]++; 
+ }
+v[7]=v[5]/(v[4]+v[5]); 
+RESULT(v[7] )
+
+EQUATION("OpportunisticRebate")
+/*
+Determine the extra rebate applied for opportunistic reasons
+*/
+
+v[0]=V("discountOR");
+v[1]=V("AdjustOR");
+v[2]=VL("OpportunisticRebate",1);
+
+v[3]=v[2]*v[0]+(1-v[0])*v[1];
+RESULT(v[3] )
+
 
 EQUATION("Select")
 /*
-Choose one firm among the bidding ones
+Choose one firm among the bidding ones and computing a number of statistics in the process
 */
 
 v[3]=V("aRebate");
 v[4]=V("aTrust");
 v[20]=v[21]=0;
+v[31]=0;
 CYCLE(cur, "Firm")
  {
   v[0]=VS(cur,"Rebate");
   v[1]=VS(cur,"Trust");
-  WRITES(cur,"ttag",(double)t);
-  v[2]=pow(v[1],v[4])*pow(v[0],v[3]);
-  WRITES(cur,"app",v[2]);
+  WRITES(cur,"winner",0);
+  v[2]=pow(v[1],v[4])*v[0];
+  v[42]=pow(v[2],v[3]);
+  WRITES(cur,"app",v[42]);
   v[20]+=VS(cur,"Trust");
   v[21]++;
+  v[31]+=VS(cur,"OpportunisticRebate");
  }
 
+WRITE("avOR",v[31]/v[21]);
 v[22]=v[20]/v[21];
 cur=RNDDRAW("Firm","app");
+WRITES(cur,"winner",1);
 INCRS(cur,"Win",1);
-v[5]=VS(cur,"ActualCost");
+
+v[9]=V("Cost");
+v[5]=VS(cur,"ActualCost")+VS(cur,"OpportunisticRebate")*v[9];
 v[6]=V("bTrust");
 v[7]=VS(cur,"Trust");
-v[9]=V("Cost");
 v[10]=v[9]/v[5];
 v[8]=v[6]*v[7]+v[10]*(1-v[6]);
 WRITES(cur,"Trust",v[8]);
