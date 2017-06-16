@@ -54,8 +54,8 @@ Label Root
 }
 
 
-DATA
 
+DATA
 Object: Root C	1
 
 Object: Centro C	10
@@ -103,7 +103,7 @@ SIM_NUM 1
 SEED 1
 MAX_STEP 2000
 EQUATION fun_procurement.cpp
- MODELREPORT report_Basic.html
+MODELREPORT report_Basic.html
 
 DESCRIPTION
 

@@ -3,14 +3,6 @@
 MODELBEGIN
 
 
-EQUATION("X")
-/*
-Comment*/
-
-RESULT(norm(100,1) )
-
-
-
 EQUATION("EstimatedCost")
 /*
 Estimated costs, depending on the production and estimation skills
@@ -24,7 +16,7 @@ WRITES(p,"norm",v[1]);
 v[2]=V("Cost"); //real normal cost
 v[3]=V("Skill");//objective production skill
 
-v[4]=v[2]*v[3]*(1+v[1]);
+v[4]=v[2]*(1-v[3])*(1+v[1]);
 v[4]<0?v[4]=0:v[4]=v[4];
 RESULT(v[4] )
 
@@ -52,6 +44,19 @@ v[2]=v[1]+v[0];
 RESULT(v[0]+v[1] )
 
 
+EQUATION("FinalBill")
+/*
+Final bill, including bid price plus risk and opportunistic rebate
+*/
+
+v[0]=V("Rebate");
+v[1]=V("OpportunisticRebate");
+v[2]=V("Risk");
+v[3]=V("Cost");
+
+v[6]=abs(norm(0,v[2]));
+v[4]=v[3]*(1-v[0]+v[6]+v[1]);
+RESULT(v[4] )
 
 EQUATION("ActualCost")
 /*
@@ -63,7 +68,7 @@ v[1]=V("Cost"); //theoretical cost
 
 v[2]=v[1]*(1+norm(0,v[0]));
 
-v[3]=V("Skill");
+v[3]=1-V("Skill");
 
 v[4]=v[3]*v[2];
 if(v[4]<0.01)
@@ -114,52 +119,52 @@ EQUATION("Select")
 Choose one firm among the bidding ones and computing a number of statistics in the process
 */
 
-v[3]=V("aRebate");
+v[3]=V("SelPressure");
 v[4]=V("aTrust");
 v[20]=v[21]=0;
-v[31]=0;
+v[31]=v[32]=0;
 CYCLE(cur, "Firm")
  {
   v[0]=VS(cur,"Rebate");
   v[1]=VS(cur,"Trust");
   WRITES(cur,"winner",0);
-  v[2]=pow(v[1],v[4])*v[0];
-  v[42]=pow(v[2],v[3]);
-  WRITES(cur,"app",v[42]);
-  v[20]+=VS(cur,"Trust");
+  v[2]=pow(v[1],v[4]);
+  v[42]=pow(v[0],(1-v[4]));
+  v[43]=v[2]*v[42];
+  v[44]=pow(v[43],v[3]);
+  WRITES(cur,"app",v[44]);
   v[21]++;
   v[31]+=VS(cur,"OpportunisticRebate");
+  v[32]+=v[1];  
  }
 
-WRITE("avOR",v[31]/v[21]);
-v[22]=v[20]/v[21];
+WRITE("avTrust",v[32]/v[21]);
 cur=RNDDRAW("Firm","app");
 WRITES(cur,"winner",1);
 INCRS(cur,"Win",1);
 
-v[9]=V("Cost");
-v[5]=VS(cur,"ActualCost")+VS(cur,"OpportunisticRebate")*v[9];
+v[9]=V("Cost")*(1-VS(cur,"Rebate"));
+v[5]=VS(cur,"FinalBill");
 v[6]=V("bTrust");
 v[7]=VS(cur,"Trust");
-v[10]=v[9]/v[5];
+v[10]=(v[9])/v[5];
 v[8]=v[6]*v[7]+v[10]*(1-v[6]);
+if(v[8]<0 || v[8]>1)
+ INTERACTS(cur, "Fuck", v[8]);
 WRITES(cur,"Trust",v[8]);
+WRITE("SFinalBill",v[5]);
+WRITE("SSkill",VS(cur, "Skill"));
+WRITE("SOR",VS(cur, "OpportunisticRebate"));
 
-v[11]=(double)t;
-
-v[12]=V("AvActualCost")*(v[11]-1)/(v[11]) +  v[5]/v[11];
-WRITE("AvActualCost",v[12]);
-
-v[13]=VS(cur,"Skill");
-v[14]=V("AvSkill")*(v[11]-1)/(v[11]) +  v[13]/v[11];
-WRITE("AvSkill",v[14]);
-
-v[15]=VS(cur,"EstimationSkill");
-v[16]=V("AvEstSkill")*(v[11]-1)/(v[11]) +  v[15]/v[11];
-WRITE("AvEstSkill",v[16]);
-
-v[23]=V("AvAvTrust")*(v[11]-1)/(v[11]) +  v[22]/v[11];
-WRITE("AvAvTrust",v[23]);
+if(t==1)
+ {
+  v[50]=V("smoothFinalBill");
+  v[51]=V("smooth");
+  v[52]=v[51]*v[50]+(1-v[51])*v[5];
+ } 
+ else
+  v[52]=v[5]; 
+WRITE("smoothFinalBill",v[52]);
 
 RESULT(VS(cur,"idFirm") )
 
