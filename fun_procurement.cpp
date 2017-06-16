@@ -12,7 +12,7 @@ v[0]=V("EstimationSkill");
 v[5]=V("Complexity");//complexity of the work
 v[1]=norm(0,v[0]*v[5]);//estimation error
 
-WRITES(p,"norm",v[1]);
+WRITES(p,"norm",1-v[1]);
 v[2]=V("Cost"); //real normal cost
 v[3]=V("Skill");//objective production skill
 
@@ -122,9 +122,13 @@ Choose one firm among the bidding ones and computing a number of statistics in t
 v[3]=V("SelPressure");
 v[4]=V("aTrust");
 v[20]=v[21]=0;
-v[31]=v[32]=0;
+v[31]=v[32]=v[70]=v[71]=0;
 CYCLE(cur, "Firm")
  {
+  v[73]=VS(cur,"Win");
+  v[74]=VS(cur,"FinalBill");
+  v[70]+=v[73]*v[74];
+  v[71]+=v[73];
   v[0]=VS(cur,"Rebate");
   v[1]=VS(cur,"Trust");
   WRITES(cur,"winner",0);
@@ -137,7 +141,8 @@ CYCLE(cur, "Firm")
   v[31]+=VS(cur,"OpportunisticRebate");
   v[32]+=v[1];  
  }
-
+if(v[71]>0)
+WRITE("avFinalBill",v[70]/v[71]);
 WRITE("avTrust",v[32]/v[21]);
 cur=RNDDRAW("Firm","app");
 WRITES(cur,"winner",1);
