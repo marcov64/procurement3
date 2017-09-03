@@ -1,0 +1,1 @@
+- Estimated costs: Where Cost is the reserve price  RND is a (small) value increasing or decreasing the costs due to complexity. SOSTITUIRE CON UNA NORMALE TRONCATA DI MIN=0 E MAX+INF.

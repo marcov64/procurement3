@@ -1,0 +1,115 @@
+proc gnuplot can {
+set font "{Times 10}"
+$can delete all
+set cmx [expr [winfo width $can]-2*[$can cget -border]-2*[$can cget -highlightthickness]]
+if {$cmx <= 1} {set cmx [$can cget -width]}
+set cmy [expr [winfo height $can]-2*[$can cget -border]-2*[$can cget -highlightthickness]]
+if {$cmy <= 1} {set cmy [$can cget -height]}
+$can create line [expr $cmx * 88 /1000] [expr $cmy * 920 /1000] [expr $cmx * 106 /1000] [expr $cmy * 920 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 951 /1000] [expr $cmy * 920 /1000] [expr $cmx * 933 /1000] [expr $cmy * 920 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 72 /1000] [expr $cmy * 920 /1000] -text \{ 52\} -fill black -anchor e [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 88 /1000] [expr $cmy * 772 /1000] [expr $cmx * 106 /1000] [expr $cmy * 772 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 951 /1000] [expr $cmy * 772 /1000] [expr $cmx * 933 /1000] [expr $cmy * 772 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 72 /1000] [expr $cmy * 772 /1000] -text \{ 54\} -fill black -anchor e [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 88 /1000] [expr $cmy * 624 /1000] [expr $cmx * 106 /1000] [expr $cmy * 624 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 951 /1000] [expr $cmy * 624 /1000] [expr $cmx * 933 /1000] [expr $cmy * 624 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 72 /1000] [expr $cmy * 624 /1000] -text \{ 56\} -fill black -anchor e [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 88 /1000] [expr $cmy * 476 /1000] [expr $cmx * 106 /1000] [expr $cmy * 476 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 951 /1000] [expr $cmy * 476 /1000] [expr $cmx * 933 /1000] [expr $cmy * 476 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 72 /1000] [expr $cmy * 476 /1000] -text \{ 58\} -fill black -anchor e [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 88 /1000] [expr $cmy * 329 /1000] [expr $cmx * 106 /1000] [expr $cmy * 329 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 951 /1000] [expr $cmy * 329 /1000] [expr $cmx * 933 /1000] [expr $cmy * 329 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 72 /1000] [expr $cmy * 329 /1000] -text \{ 60\} -fill black -anchor e [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 88 /1000] [expr $cmy * 181 /1000] [expr $cmx * 106 /1000] [expr $cmy * 181 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 951 /1000] [expr $cmy * 181 /1000] [expr $cmx * 933 /1000] [expr $cmy * 181 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 72 /1000] [expr $cmy * 181 /1000] -text \{ 62\} -fill black -anchor e [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 88 /1000] [expr $cmy * 33 /1000] [expr $cmx * 106 /1000] [expr $cmy * 33 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 951 /1000] [expr $cmy * 33 /1000] [expr $cmx * 933 /1000] [expr $cmy * 33 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 72 /1000] [expr $cmy * 33 /1000] -text \{ 64\} -fill black -anchor e [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 88 /1000] [expr $cmy * 920 /1000] [expr $cmx * 88 /1000] [expr $cmy * 902 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 88 /1000] [expr $cmy * 33 /1000] [expr $cmx * 88 /1000] [expr $cmy * 51 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 88 /1000] [expr $cmy * 945 /1000] -text \{ 2\} -fill black -anchor center [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 184 /1000] [expr $cmy * 920 /1000] [expr $cmx * 184 /1000] [expr $cmy * 902 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 184 /1000] [expr $cmy * 33 /1000] [expr $cmx * 184 /1000] [expr $cmy * 51 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 184 /1000] [expr $cmy * 945 /1000] -text \{ 4\} -fill black -anchor center [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 280 /1000] [expr $cmy * 920 /1000] [expr $cmx * 280 /1000] [expr $cmy * 902 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 280 /1000] [expr $cmy * 33 /1000] [expr $cmx * 280 /1000] [expr $cmy * 51 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 280 /1000] [expr $cmy * 945 /1000] -text \{ 6\} -fill black -anchor center [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 376 /1000] [expr $cmy * 920 /1000] [expr $cmx * 376 /1000] [expr $cmy * 902 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 376 /1000] [expr $cmy * 33 /1000] [expr $cmx * 376 /1000] [expr $cmy * 51 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 376 /1000] [expr $cmy * 945 /1000] -text \{ 8\} -fill black -anchor center [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 472 /1000] [expr $cmy * 920 /1000] [expr $cmx * 472 /1000] [expr $cmy * 902 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 472 /1000] [expr $cmy * 33 /1000] [expr $cmx * 472 /1000] [expr $cmy * 51 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 472 /1000] [expr $cmy * 945 /1000] -text \{ 10\} -fill black -anchor center [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 567 /1000] [expr $cmy * 920 /1000] [expr $cmx * 567 /1000] [expr $cmy * 902 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 567 /1000] [expr $cmy * 33 /1000] [expr $cmx * 567 /1000] [expr $cmy * 51 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 567 /1000] [expr $cmy * 945 /1000] -text \{ 12\} -fill black -anchor center [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 663 /1000] [expr $cmy * 920 /1000] [expr $cmx * 663 /1000] [expr $cmy * 902 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 663 /1000] [expr $cmy * 33 /1000] [expr $cmx * 663 /1000] [expr $cmy * 51 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 663 /1000] [expr $cmy * 945 /1000] -text \{ 14\} -fill black -anchor center [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 759 /1000] [expr $cmy * 920 /1000] [expr $cmx * 759 /1000] [expr $cmy * 902 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 759 /1000] [expr $cmy * 33 /1000] [expr $cmx * 759 /1000] [expr $cmy * 51 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 759 /1000] [expr $cmy * 945 /1000] -text \{ 16\} -fill black -anchor center [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 855 /1000] [expr $cmy * 920 /1000] [expr $cmx * 855 /1000] [expr $cmy * 902 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 855 /1000] [expr $cmy * 33 /1000] [expr $cmx * 855 /1000] [expr $cmy * 51 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 855 /1000] [expr $cmy * 945 /1000] -text \{ 18\} -fill black -anchor center [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 951 /1000] [expr $cmy * 920 /1000] [expr $cmx * 951 /1000] [expr $cmy * 902 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 951 /1000] [expr $cmy * 33 /1000] [expr $cmx * 951 /1000] [expr $cmy * 51 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 951 /1000] [expr $cmy * 945 /1000] -text \{ 20\} -fill black -anchor center [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 88 /1000] [expr $cmy * 33 /1000] [expr $cmx * 88 /1000] [expr $cmy * 920 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 88 /1000] [expr $cmy * 920 /1000] [expr $cmx * 951 /1000] [expr $cmy * 920 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 951 /1000] [expr $cmy * 920 /1000] [expr $cmx * 951 /1000] [expr $cmy * 33 /1000] -fill black -width 1.000000 -capstyle round
+$can create line [expr $cmx * 951 /1000] [expr $cmy * 33 /1000] [expr $cmx * 88 /1000] [expr $cmy * 33 /1000] -fill black -width 1.000000 -capstyle round
+eval $can create text [expr $cmx * 519 /1000] [expr $cmy * 982 /1000] -text \{SelPressure_1\} -fill black -anchor center [expr [info exists font]?"-font \$font":{}]
+eval $can create text [expr $cmx * 821 /1000] [expr $cmy * 64 /1000] -text \{avFinalBill_1(5000)\} -fill black -anchor e [expr [info exists font]?"-font \$font":{}]
+$can create line [expr $cmx * 79 /1000] [expr $cmy * 160 /1000] [expr $cmx * 79 /1000] [expr $cmy * 160 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 79 /1000] [expr $cmy * 160 /1000] [expr $cmx * 97 /1000] [expr $cmy * 160 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 88 /1000] [expr $cmy * 169 /1000] [expr $cmx * 88 /1000] [expr $cmy * 169 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 88 /1000] [expr $cmy * 169 /1000] [expr $cmx * 88 /1000] [expr $cmy * 151 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 175 /1000] [expr $cmy * 449 /1000] [expr $cmx * 175 /1000] [expr $cmy * 449 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 175 /1000] [expr $cmy * 449 /1000] [expr $cmx * 193 /1000] [expr $cmy * 449 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 184 /1000] [expr $cmy * 458 /1000] [expr $cmx * 184 /1000] [expr $cmy * 458 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 184 /1000] [expr $cmy * 458 /1000] [expr $cmx * 184 /1000] [expr $cmy * 440 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 271 /1000] [expr $cmy * 610 /1000] [expr $cmx * 271 /1000] [expr $cmy * 610 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 271 /1000] [expr $cmy * 610 /1000] [expr $cmx * 289 /1000] [expr $cmy * 610 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 280 /1000] [expr $cmy * 619 /1000] [expr $cmx * 280 /1000] [expr $cmy * 619 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 280 /1000] [expr $cmy * 619 /1000] [expr $cmx * 280 /1000] [expr $cmy * 601 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 367 /1000] [expr $cmy * 702 /1000] [expr $cmx * 367 /1000] [expr $cmy * 702 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 367 /1000] [expr $cmy * 702 /1000] [expr $cmx * 385 /1000] [expr $cmy * 702 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 376 /1000] [expr $cmy * 711 /1000] [expr $cmx * 376 /1000] [expr $cmy * 711 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 376 /1000] [expr $cmy * 711 /1000] [expr $cmx * 376 /1000] [expr $cmy * 693 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 463 /1000] [expr $cmy * 763 /1000] [expr $cmx * 463 /1000] [expr $cmy * 763 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 463 /1000] [expr $cmy * 763 /1000] [expr $cmx * 481 /1000] [expr $cmy * 763 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 472 /1000] [expr $cmy * 772 /1000] [expr $cmx * 472 /1000] [expr $cmy * 772 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 472 /1000] [expr $cmy * 772 /1000] [expr $cmx * 472 /1000] [expr $cmy * 754 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 558 /1000] [expr $cmy * 806 /1000] [expr $cmx * 558 /1000] [expr $cmy * 806 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 558 /1000] [expr $cmy * 806 /1000] [expr $cmx * 576 /1000] [expr $cmy * 806 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 567 /1000] [expr $cmy * 815 /1000] [expr $cmx * 567 /1000] [expr $cmy * 815 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 567 /1000] [expr $cmy * 815 /1000] [expr $cmx * 567 /1000] [expr $cmy * 797 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 654 /1000] [expr $cmy * 833 /1000] [expr $cmx * 654 /1000] [expr $cmy * 833 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 654 /1000] [expr $cmy * 833 /1000] [expr $cmx * 672 /1000] [expr $cmy * 833 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 663 /1000] [expr $cmy * 842 /1000] [expr $cmx * 663 /1000] [expr $cmy * 842 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 663 /1000] [expr $cmy * 842 /1000] [expr $cmx * 663 /1000] [expr $cmy * 824 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 750 /1000] [expr $cmy * 863 /1000] [expr $cmx * 750 /1000] [expr $cmy * 863 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 750 /1000] [expr $cmy * 863 /1000] [expr $cmx * 768 /1000] [expr $cmy * 863 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 759 /1000] [expr $cmy * 872 /1000] [expr $cmx * 759 /1000] [expr $cmy * 872 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 759 /1000] [expr $cmy * 872 /1000] [expr $cmx * 759 /1000] [expr $cmy * 854 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 846 /1000] [expr $cmy * 887 /1000] [expr $cmx * 846 /1000] [expr $cmy * 887 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 846 /1000] [expr $cmy * 887 /1000] [expr $cmx * 864 /1000] [expr $cmy * 887 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 855 /1000] [expr $cmy * 896 /1000] [expr $cmx * 855 /1000] [expr $cmy * 896 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 855 /1000] [expr $cmy * 896 /1000] [expr $cmx * 855 /1000] [expr $cmy * 878 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 942 /1000] [expr $cmy * 901 /1000] [expr $cmx * 942 /1000] [expr $cmy * 901 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 942 /1000] [expr $cmy * 901 /1000] [expr $cmx * 960 /1000] [expr $cmy * 901 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 951 /1000] [expr $cmy * 910 /1000] [expr $cmx * 951 /1000] [expr $cmy * 910 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 951 /1000] [expr $cmy * 910 /1000] [expr $cmx * 951 /1000] [expr $cmy * 892 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 869 /1000] [expr $cmy * 64 /1000] [expr $cmx * 869 /1000] [expr $cmy * 64 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 869 /1000] [expr $cmy * 64 /1000] [expr $cmx * 887 /1000] [expr $cmy * 64 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 878 /1000] [expr $cmy * 73 /1000] [expr $cmx * 878 /1000] [expr $cmy * 73 /1000] -fill red -width 1.000000 -capstyle round
+$can create line [expr $cmx * 878 /1000] [expr $cmy * 73 /1000] [expr $cmx * 878 /1000] [expr $cmy * 55 /1000] -fill red -width 1.000000 -capstyle round
+}
+proc gnuplot_plotarea {} {
+return {88 951 33 920}
+}
+proc gnuplot_axisranges {} {
+return {2.000000 20.000000 52.000000 64.000000 2.000000 20.000000 52.258512 62.285477}
+}
