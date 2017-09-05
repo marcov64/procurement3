@@ -48,7 +48,7 @@ $can create line [expr $cmx * 104 /1000] [expr $cmy * 33 /1000] [expr $cmx * 104
 $can create line [expr $cmx * 104 /1000] [expr $cmy * 920 /1000] [expr $cmx * 951 /1000] [expr $cmy * 920 /1000] -fill black -width 1.000000 -capstyle round
 $can create line [expr $cmx * 951 /1000] [expr $cmy * 920 /1000] [expr $cmx * 951 /1000] [expr $cmy * 33 /1000] -fill black -width 1.000000 -capstyle round
 $can create line [expr $cmx * 951 /1000] [expr $cmy * 33 /1000] [expr $cmx * 104 /1000] [expr $cmy * 33 /1000] -fill black -width 1.000000 -capstyle round
-eval $can create text [expr $cmx * 527 /1000] [expr $cmy * 982 /1000] -text \{Skill_2_1\} -fill black -anchor center [expr [info exists font]?"-font \$font":{}]
+eval $can create text [expr $cmx * 527 /1000] [expr $cmy * 982 /1000] -text \{Skill_1_1\} -fill black -anchor center [expr [info exists font]?"-font \$font":{}]
 eval $can create text [expr $cmx * 821 /1000] [expr $cmy * 64 /1000] -text \{Win_1_1(10000)\} -fill black -anchor e [expr [info exists font]?"-font \$font":{}]
 $can create line [expr $cmx * 95 /1000] [expr $cmy * 778 /1000] [expr $cmx * 95 /1000] [expr $cmy * 778 /1000] -fill red -width 1.000000 -capstyle round
 $can create line [expr $cmx * 95 /1000] [expr $cmy * 778 /1000] [expr $cmx * 113 /1000] [expr $cmy * 778 /1000] -fill red -width 1.000000 -capstyle round

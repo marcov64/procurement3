@@ -10,7 +10,7 @@ Estimated costs, depending on the production and estimation skills
 
 v[0]=V("EstimationSkill");
 v[5]=V("Complexity");//complexity of the work
-v[1]=norm(0,v[0]*v[5]);//estimation error
+v[1]=abs(norm(0,v[0]*v[5]));//estimation error
 
 WRITES(p,"norm",1-v[1]);
 v[2]=V("Cost"); //real normal cost
