@@ -69,7 +69,7 @@ Param: Complexity 0 n + n n	0.004	0.004
 Param: bTrust 0 n + n n	0.9	0.9
 Param: aTrust 0 s + n n	0	0.8
 Param: aRebate 0 n + n n	20	20
-Param: Risk 0 n + n n	0	0
+Param: Risk 0 n + n n	0.4	0.4
 Param: smoothFinalBill 0 s + n n	0	0
 Param: discountOR 0 n + n n	0.9	0.9
 Param: avOR 0 s + n n	0	0
@@ -176,7 +176,7 @@ END_DESCRIPTION
 Parameter_Risk
 (no description available)
 _INIT_
- All 2 instances equal to 0.
+ All 2 instances equal to 0.4.
 END_DESCRIPTION
 
 Parameter_smoothFinalBill
